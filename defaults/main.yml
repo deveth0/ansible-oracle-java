@@ -1,2 +1,3 @@
 ---
-# defaults file for deveth0.oracle_java
+oracle_java_version: 8
+oracle_java_set_default: True

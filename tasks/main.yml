@@ -1,2 +1,29 @@
 ---
-# tasks file for deveth0.oracle_java
+- name: Add Debian Repository.
+  apt_repository: 
+    repo: 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main'
+
+- name: Add Debian src Respository.    
+  apt_repository:
+    repo: 'deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main'
+
+- name: Add key for Repository.
+  apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: EEA14886
+
+- name: Accept Java {{ oracle_java_version }} Licence
+  shell: echo oracle-java{{ oracle_java_version }}-installer shared/accepted-oracle-license-v1-1 select true | tee /etc/oracle-java-8-licence-acceptance | /usr/bin/debconf-set-selections
+  args:
+    creates: /etc/oracle-java-{{ oracle_java_version }}-licence-acceptance
+
+- name: Install Java {{ oracle_java_version }} Package
+  apt:
+    name: 'oracle-java{{ oracle_java_version }}-installer'
+    update_cache: yes
+
+
+- name: Set Java {{ oracle_java_version }} Variables
+  apt:
+    name: 'oracle-java{{ oracle_java_version }}-set-default'
+  when: oracle_java_set_default
