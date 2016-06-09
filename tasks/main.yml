@@ -12,18 +12,18 @@
     keyserver: hkp://keyserver.ubuntu.com:80
     id: EEA14886
 
-- name: Accept Java {{ oracle_java_version }} Licence
+- name: Accept Java Licence
   shell: echo oracle-java{{ oracle_java_version }}-installer shared/accepted-oracle-license-v1-1 select true | tee /etc/oracle-java-8-licence-acceptance | /usr/bin/debconf-set-selections
   args:
     creates: /etc/oracle-java-{{ oracle_java_version }}-licence-acceptance
 
-- name: Install Java {{ oracle_java_version }} Package
+- name: Install Java Package
   apt:
     name: 'oracle-java{{ oracle_java_version }}-installer'
     update_cache: yes
 
 
-- name: Set Java {{ oracle_java_version }} Variables
+- name: Set Java Environment Variables
   apt:
     name: 'oracle-java{{ oracle_java_version }}-set-default'
   when: oracle_java_set_default
