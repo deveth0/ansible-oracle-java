@@ -8,10 +8,12 @@ Installs the Oracle Java JDK using a package provided by http://www.webupd8.org 
 Available variables are listed below, along with the default values:
 
 You can configure which java-version to use:
-   oracle_java_version: 8
+
+    oracle_java_version: 8
 
 By default the Java environment variables are set:
-   oracle_java_set_default: True
+
+    oracle_java_set_default: True
 
 ## Example Playbook
 
