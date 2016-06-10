@@ -34,7 +34,7 @@ No dependencies required
 
     - hosts: foo
       roles:
-        - role: deveth0.oracle_java
+        - role: deveth0.oracle-java
           oracle_java_version: 7
           
 
