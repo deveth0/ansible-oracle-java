@@ -2,6 +2,16 @@
 
 Installs the Oracle Java JDK using a package provided by http://www.webupd8.org on Debian/Ubuntu Linux servers.
 
+## Installation
+
+You can either use ansible-galaxy to install this role:
+
+    ansible-galaxy install deveth0.oracle_java
+
+Or checkout this git-repository to your roles directory:
+
+    git clone https://github.com/deveth0/ansible-oracle-java.git deveth0.oracle_java
+
 
 ## Role Variables
 
@@ -14,6 +24,11 @@ You can configure which java-version to use:
 By default the Java environment variables are set:
 
     oracle_java_set_default: True
+
+
+## Dependencies
+ 
+No dependencies required
 
 ## Example Playbook
 
