@@ -1,4 +1,4 @@
-# Ansible Role: Oracle Java
+# Ansible Role: Oracle Java [![Build Status](https://travis-ci.org/deveth0/ansible-oracle-java.svg?branch=master)](https://travis-ci.org/deveth0/ansible-oracle-java)
 
 Installs the Oracle Java JDK using a package provided by http://www.webupd8.org on Debian/Ubuntu Linux servers.
 
