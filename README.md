@@ -6,7 +6,7 @@ Installs the Oracle Java JDK using a package provided by http://www.webupd8.org 
 
 You can either use ansible-galaxy to install this role:
 
-    ansible-galaxy install deveth0.oracle_java
+    ansible-galaxy install deveth0.oracle-java
 
 Or checkout this git-repository to your roles directory:
 
