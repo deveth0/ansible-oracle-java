@@ -2,4 +2,4 @@
 - hosts: localhost
   remote_user: root
   roles:
-    - deveth0.oracle_java
+    - ansible-oracle-java
