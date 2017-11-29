@@ -1,29 +1,28 @@
 ---
-- name: Add Debian Repository.
-  apt_repository: 
-    repo: 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main'
-
-- name: Add Debian src Respository.    
+- name: Add webupd8 java repository.
   apt_repository:
-    repo: 'deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main'
+    repo: 'ppa:webupd8team/java'
+  register: webupd8_repo
 
-- name: Add key for Repository.
+- name: Add key for webupd8 repository.
   apt_key:
     keyserver: hkp://keyserver.ubuntu.com:80
     id: EEA14886
 
-- name: Accept Java Licence
-  shell: echo oracle-java{{ oracle_java_version }}-installer shared/accepted-oracle-license-v1-1 select true | tee /etc/oracle-java-8-licence-acceptance | /usr/bin/debconf-set-selections
-  args:
-    creates: /etc/oracle-java-{{ oracle_java_version }}-licence-acceptance
+- name: Accept Oracle java license
+  debconf:
+    name: oracle-java{{ oracle_java_version }}-installer
+    question: shared/accepted-oracle-license-v1-1
+    value: 'true'
+    vtype: select
 
-- name: Install Java Package
+- name: Install Oracle java package
   apt:
     name: 'oracle-java{{ oracle_java_version }}-installer'
-    update_cache: yes
+    state: '{{ oracle_java_state }}'
 
-
-- name: Set Java Environment Variables
+- name: Set java environment variables
   apt:
     name: 'oracle-java{{ oracle_java_version }}-set-default'
+    state: '{{ oracle_java_state }}'
   when: oracle_java_set_default
