@@ -1,9 +1,9 @@
 ---
 - name: Add Debian Repository.
-  apt_repository: 
+  apt_repository:
     repo: 'deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main'
 
-- name: Add Debian src Respository.    
+- name: Add Debian src Respository.
   apt_repository:
     repo: 'deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main'
 
