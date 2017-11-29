@@ -1,10 +1,13 @@
 ---
-services: docker
+sudo: required
+language: python
+python: "2.7"
 
-env:
-  - distro: ubuntu1604
-#  - distro: ubuntu1404
-#  - distro: debian8
+# services: docker
+# env:
+#   - distro: ubuntu1604
+#   - distro: ubuntu1404
+#   - distro: debian8
 
 # Install ansible
 addons:
@@ -32,11 +35,12 @@ script:
   # Run the role/playbook with ansible-playbook.
   - >
     ansible-playbook -i tests/inventory tests/test.yml --connection=local
-    -v --diff
+    --become -v --diff
 
   # Run the role/playbook again, checking to make sure it's idempotent.
   - >
     ansible-playbook -i tests/inventory tests/test.yml --connection=local
+    --become -v --diff
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
