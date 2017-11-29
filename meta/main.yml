@@ -1,7 +1,7 @@
 galaxy_info:
-  author: deveth0
+  author: mtnsat
   description: Ansible Role to install Oracle Java using the webupd8team packages on Debian
-  company: deveth0
+  company: mtnsat
 
   license: license (Apache)
 
