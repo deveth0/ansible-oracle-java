@@ -25,6 +25,10 @@ By default the Java environment variables are set:
 
     oracle_java_set_default: True
 
+Set the package state to 'latest' to upgrade, or 'absent' to remove
+
+    oracle_java_state: present
+
 
 ## Dependencies
 
