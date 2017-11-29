@@ -1,9 +1,10 @@
 ---
-language: python
-python: "2.7"
+services: docker
 
-# Use the new container infrastructure
-sudo: false
+env:
+  - distro: ubuntu1604
+#  - distro: ubuntu1404
+#  - distro: debian8
 
 # Install ansible
 addons:
