@@ -1,6 +1,8 @@
+---
 galaxy_info:
   author: mtnsat
-  description: Ansible Role to install Oracle Java using the webupd8team packages on Debian
+  description: >
+    Ansible Role to install Oracle Java using the webupd8team packages on Debian
   company: mtnsat
 
   license: license (Apache)
@@ -13,32 +15,32 @@ galaxy_info:
   # platform on this list, let us know and we'll get it added!
   #
   platforms:
-  - name: Ubuntu
-    versions:
-    - all
-  #  - lucid
-  #  - maverick
-  #  - natty
-  #  - oneiric
-  #  - precise
-  #  - quantal
-  #  - raring
-  #  - saucy
-  #  - trusty
-  #  - utopic
-  #  - vivid
-  #  - wily
-  #  - xenial
-  - name: Debian
-    versions:
-    - all
-  #  - etch
-  #  - jessie
-  #  - lenny
-  #  - sid
-  #  - squeeze
-  #  - stretch
-  #  - wheezy
+    - name: Ubuntu
+      versions:
+        - all
+        # - lucid
+        # - maverick
+        # - natty
+        # - oneiric
+        # - precise
+        # - quantal
+        # - raring
+        # - saucy
+        # - trusty
+        # - utopic
+        # - vivid
+        # - wily
+        # - xenial
+    - name: Debian
+      versions:
+        - all
+        # - etch
+        # - jessie
+        # - lenny
+        # - sid
+        # - squeeze
+        # - stretch
+        # - wheezy
 
   galaxy_tags:
     - system

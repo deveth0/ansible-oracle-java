@@ -9,11 +9,11 @@ sudo: false
 addons:
   apt:
     packages:
-    - python-pip
+      - python-pip
 
 install:
   # Install ansible
-  - pip install ansible
+  - pip install ansible yamllint
 
   # Check ansible version
   - ansible --version
@@ -24,6 +24,24 @@ install:
 script:
   # Basic role syntax check
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check
+
+  # YAML linting
+  - yamllint .
+
+  # Run the role/playbook with ansible-playbook.
+  - >
+    ansible-playbook -i tests/inventory tests/test.yml --connection=local
+    -v --diff
+
+  # Run the role/playbook again, checking to make sure it's idempotent.
+  - >
+    ansible-playbook -i tests/inventory tests/test.yml --connection=local
+    | grep -q 'changed=0.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
+
+  # Test if java is executable
+  - java -version
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
